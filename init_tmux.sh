@@ -2,6 +2,8 @@
 tmux new-session -d -s $1
 tmux new-window -t $1:1 -n nvim
 tmux select-window -t $1:1
+tmux send-keys -t $1:1 "source .venv/bin/activate" C-m
+tmux send-keys -t $1:0 "source .venv/bin/activate" C-m
 tmux send-keys -t $1:1 "nvim ." C-m
 tmux attach-session -t $1
 
